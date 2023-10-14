@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Clean up your project directory",
   "main": "./out/index.js",
+  "type": "module",
   "repository": "git@github.com:tobiaswaelde/clean-dir.git",
   "author": "Tobias Wälde <tobias.waelde@gmail.com>",
   "license": "MIT",
@@ -12,8 +13,12 @@
     "build": "cd src && tsc",
     "start": "node ./out/index.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "inquirer": "^9.2.11",
+    "run-in-sequence": "^1.0.5"
+  },
   "devDependencies": {
+    "@types/inquirer": "^9.0.4",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
