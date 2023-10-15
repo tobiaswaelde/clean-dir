@@ -14,7 +14,9 @@ const res = await inquirer.prompt<PromptsState>([
 ]);
 
 if (res.confirmation === true) {
-	//TODO delete folders
+	console.log(`Deleting ${res.selectedFolders.length} folders...`);
+	const countDeleted = await deleteFolders(res.selectedFolders);
+	console.log(`${countDeleted} folders deleted.`);
 } else {
 	console.log('No folders deleted.');
 }
