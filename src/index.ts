@@ -1,25 +1,20 @@
-import path from 'node:path';
-import { getFolderNamesFromTypes } from './types.js';
-import { findFolders } from './util/find-folders.js';
-import {
-	promptConfirmDelete,
-	promptEnterRootDir,
-	promptSelectFoldersToDelete,
+import inquirer from 'inquirer';
+import { PromptsState } from './prompts/types.js';
+import { promptInputRootDir } from './prompts/input-root-dir.js';
+import { promptSelectTypes } from './prompts/select-types.js';
+import { promptSelectFolders } from './prompts/select-folders.js';
+import { promptConfirmation } from './prompts/confirmation.js';
+import { deleteFolders } from './util/delete-folders.js';
+
+const res = await inquirer.prompt<PromptsState>([
+	promptInputRootDir,
 	promptSelectTypes,
-} from './prompts/select-types.js';
+	promptSelectFolders,
+	promptConfirmation,
+]);
 
-const rootDir = path.resolve('/Users/tobiaswaelde/Projects');
-
-const dir = await promptEnterRootDir();
-const typesToFind = await promptSelectTypes();
-
-const folders = await findFolders(dir, getFolderNamesFromTypes(typesToFind));
-
-const foldersToDelete = await promptSelectFoldersToDelete(rootDir, folders);
-if (foldersToDelete.length === 0) {
-	console.log('No folders selected.');
-	process.exit();
+if (res.confirmation === true) {
+	//TODO delete folders
+} else {
+	console.log('No folders deleted.');
 }
-
-const confirmDelete = await promptConfirmDelete(foldersToDelete.length);
-console.log(confirmDelete);
