@@ -1,5 +1,5 @@
 {
-  "name": "clean-dir",
+  "name": "dir-cleaner",
   "version": "1.0.0",
   "description": "Clean up your project directory",
   "main": "./out/index.js",
@@ -7,6 +7,7 @@
   "repository": "git@github.com:tobiaswaelde/clean-dir.git",
   "author": "Tobias Wälde <tobias.waelde@gmail.com>",
   "license": "MIT",
+  "private": false,
   "scripts": {
     "dev": "nodemon --config \"./nodemon.json\"",
     "prebuild": "rm -rf ./out",
