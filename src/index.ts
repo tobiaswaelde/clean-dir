@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import inquirer from 'inquirer';
 import { PromptsState } from './prompts/types.js';
 import { promptInputRootDir } from './prompts/input-root-dir.js';
