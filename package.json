@@ -1,6 +1,6 @@
 {
   "name": "clean-dir-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Clean up your project directory",
   "main": "./out/index.js",
   "type": "module",
