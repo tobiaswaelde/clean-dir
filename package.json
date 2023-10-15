@@ -8,6 +8,9 @@
   "author": "Tobias Wälde <tobias.waelde@gmail.com>",
   "license": "MIT",
   "private": false,
+  "bin": {
+    "clean-dir": "./out/index.js"
+  },
   "scripts": {
     "dev": "nodemon --config \"./nodemon.json\"",
     "prebuild": "rm -rf ./out",
